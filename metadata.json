@@ -1,0 +1,6 @@
+{
+  "name": "Sunkoshi Bearing Centre",
+  "description": "A premium, modern application for Sunkoshi Bearing Centre in Itahari, Nepal, featuring product catalog browsing, live stock status, user reviews, enquiries, a secure admin panel, and an AI assistant.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

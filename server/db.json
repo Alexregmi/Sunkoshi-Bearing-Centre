@@ -1,0 +1,408 @@
+{
+  "products": [
+    {
+      "id": "prod-1",
+      "name": "SKF Deep Groove Ball Bearing 6204-2RSH",
+      "sku": "SKF-6204-2RSH",
+      "barcode": "7316571900125",
+      "brand": "SKF",
+      "category": "Bearings",
+      "description": "High-quality single row deep groove ball bearing by SKF. Features rubber seals on both sides to prevent dust ingress. Extremely versatile, robust, and low maintenance. Ideal for high speed and medium loads.",
+      "price": 450,
+      "discount": 5,
+      "warranty": "6 Months",
+      "availableQty": 120,
+      "lastUpdated": "2026-07-04T02:00:00.000Z",
+      "images": [
+        "https://images.unsplash.com/photo-1621905252507-b354bc25edac?q=80&w=600&auto=format&fit=crop",
+        "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?q=80&w=600&auto=format&fit=crop"
+      ],
+      "specifications": [
+        {
+          "name": "Inside Diameter (d)",
+          "value": "20 mm"
+        },
+        {
+          "name": "Outside Diameter (D)",
+          "value": "47 mm"
+        },
+        {
+          "name": "Width (B)",
+          "value": "14 mm"
+        },
+        {
+          "name": "Seal Type",
+          "value": "Double Lip Rubber Seal"
+        },
+        {
+          "name": "Radial Internal Clearance",
+          "value": "CN (Normal)"
+        },
+        {
+          "name": "Static Load Rating",
+          "value": "6.55 kN"
+        },
+        {
+          "name": "Dynamic Load Rating",
+          "value": "13.5 kN"
+        }
+      ],
+      "featured": true,
+      "bestSelling": true,
+      "newArrival": false,
+      "tractorModels": [
+        "Mahindra DI-275",
+        "Swaraj 744",
+        "Massey Ferguson 1035"
+      ],
+      "vehicleModels": [
+        "Tata Ace",
+        "Maruti 800"
+      ]
+    },
+    {
+      "id": "prod-2",
+      "name": "TIMKEN Tapered Roller Bearing Set 47",
+      "sku": "TIM-SET-47",
+      "barcode": "053893110291",
+      "brand": "TIMKEN",
+      "category": "Automotive Bearings",
+      "description": "TIMKEN is the gold standard for tapered roller bearings. Perfect for front wheel wheel hub applications. Engineered to manage both radial and thrust loads efficiently on heavy duty utility vehicles.",
+      "price": 1850,
+      "discount": 10,
+      "warranty": "1 Year",
+      "availableQty": 8,
+      "lastUpdated": "2026-07-04T02:10:00.000Z",
+      "images": [
+        "https://images.unsplash.com/photo-1537462715879-360eeb61a0bc?q=80&w=600&auto=format&fit=crop",
+        "https://images.unsplash.com/photo-1581092160607-ee22621dd758?q=80&w=600&auto=format&fit=crop"
+      ],
+      "specifications": [
+        {
+          "name": "Cone Part Number",
+          "value": "LM102949"
+        },
+        {
+          "name": "Cup Part Number",
+          "value": "LM102910"
+        },
+        {
+          "name": "Bore (d)",
+          "value": "1.7812 in (45.242 mm)"
+        },
+        {
+          "name": "Outer Diameter (D)",
+          "value": "2.8910 in (73.431 mm)"
+        },
+        {
+          "name": "Width (T)",
+          "value": "0.7700 in (19.558 mm)"
+        }
+      ],
+      "featured": true,
+      "bestSelling": false,
+      "newArrival": true,
+      "tractorModels": [
+        "Mahindra Arjun 555",
+        "Swaraj 855",
+        "John Deere 5050D"
+      ],
+      "vehicleModels": [
+        "Tata LPT 407",
+        "Mahindra Bolero Pickup"
+      ]
+    },
+    {
+      "id": "prod-3",
+      "name": "Mahindra Tractor PTO Shaft Oil Seal",
+      "sku": "PTO-SEAL-MH",
+      "barcode": "890412356019",
+      "brand": "Tata",
+      "category": "Oil Seals",
+      "description": "Premium Nitrile Rubber (NBR) oil seal with double lips and garter spring. Designed specifically for the PTO (Power Take-Off) output shaft of Mahindra DI series tractors to prevent gear oil leakage.",
+      "price": 280,
+      "discount": 0,
+      "warranty": "No warranty",
+      "availableQty": 45,
+      "lastUpdated": "2026-07-04T01:30:00.000Z",
+      "images": [
+        "https://images.unsplash.com/photo-1541888946425-d81bb19240f5?q=80&w=600&auto=format&fit=crop"
+      ],
+      "specifications": [
+        {
+          "name": "Inner Diameter",
+          "value": "45 mm"
+        },
+        {
+          "name": "Outer Diameter",
+          "value": "65 mm"
+        },
+        {
+          "name": "Thickness",
+          "value": "10 mm"
+        },
+        {
+          "name": "Material",
+          "value": "NBR (Nitrile Butadiene Rubber)"
+        },
+        {
+          "name": "Working Temperature",
+          "value": "-40C to 120C"
+        }
+      ],
+      "featured": false,
+      "bestSelling": true,
+      "newArrival": false,
+      "tractorModels": [
+        "Mahindra DI-275",
+        "Mahindra Arjun 555",
+        "Mahindra XP Plus"
+      ],
+      "vehicleModels": []
+    },
+    {
+      "id": "prod-4",
+      "name": "Castrol RX Super Tractor Engine Oil 15W-40",
+      "sku": "CAS-RX-15W40-5L",
+      "barcode": "5010321008712",
+      "brand": "Castrol",
+      "category": "Lubricants",
+      "description": "5-Litre premium engine oil formulated specifically for high-torque tractor and heavy commercial vehicle engines. Provides active soot protection and reduces engine wear under extreme loads.",
+      "price": 3450,
+      "discount": 12,
+      "warranty": "Expiry 3 Years",
+      "availableQty": 3,
+      "lastUpdated": "2026-07-04T02:25:00.000Z",
+      "images": [
+        "https://images.unsplash.com/photo-1486006920555-c77dce18193b?q=80&w=600&auto=format&fit=crop"
+      ],
+      "specifications": [
+        {
+          "name": "Volume",
+          "value": "5 Liters"
+        },
+        {
+          "name": "Viscosity Grade",
+          "value": "15W-40"
+        },
+        {
+          "name": "API Service Rating",
+          "value": "CH-4"
+        },
+        {
+          "name": "Engine Type",
+          "value": "Heavy Duty Diesel"
+        }
+      ],
+      "featured": true,
+      "bestSelling": true,
+      "newArrival": true,
+      "tractorModels": [
+        "Mahindra DI-275",
+        "Swaraj 744",
+        "Massey Ferguson 1035",
+        "Sonalika Rx-750",
+        "Escorts 335"
+      ],
+      "vehicleModels": [
+        "Tata 407",
+        "Mahindra Bolero",
+        "Force Traveller"
+      ]
+    },
+    {
+      "id": "prod-5",
+      "name": "SKF LGMT 3 Premium Industrial Grease",
+      "sku": "SKF-LGMT3-1KG",
+      "barcode": "7316572520111",
+      "brand": "SKF",
+      "category": "Grease",
+      "description": "SKF LGMT 3 is a mineral oil based, lithium soap thickened grease. This premium-quality, general purpose grease is suitable for a wide range of industrial and automotive applications requiring stiff grease.",
+      "price": 950,
+      "discount": 5,
+      "warranty": "N/A",
+      "availableQty": 0,
+      "lastUpdated": "2026-07-03T18:40:00.000Z",
+      "images": [
+        "https://images.unsplash.com/photo-1516937941344-00b4e0337589?q=80&w=600&auto=format&fit=crop"
+      ],
+      "specifications": [
+        {
+          "name": "Weight",
+          "value": "1 kg"
+        },
+        {
+          "name": "NLGI Consistency Class",
+          "value": "3"
+        },
+        {
+          "name": "Thickener",
+          "value": "Lithium"
+        },
+        {
+          "name": "Base Oil Viscosity at 40C",
+          "value": "125 mm2/s"
+        },
+        {
+          "name": "Operating Temp Range",
+          "value": "-30C to 120C"
+        }
+      ],
+      "featured": false,
+      "bestSelling": false,
+      "newArrival": false,
+      "tractorModels": [
+        "Mahindra DI-275",
+        "Swaraj 744",
+        "Massey Ferguson 1035",
+        "Escorts 335"
+      ],
+      "vehicleModels": [
+        "Tata Ace",
+        "Mahindra Bolero",
+        "Eicher Pro 1049"
+      ]
+    }
+  ],
+  "categories": [
+    "Bearings",
+    "Automotive Parts",
+    "Industrial Bearings",
+    "Automotive Bearings",
+    "Oil Seals",
+    "Grease",
+    "Belts",
+    "Chains",
+    "Pulleys",
+    "Lubricants",
+    "Hardware Items"
+  ],
+  "brands": [
+    "SKF",
+    "FAG",
+    "NTN",
+    "NSK",
+    "TIMKEN",
+    "KOYO",
+    "NBC",
+    "Tata",
+    "Castrol",
+    "Mobil"
+  ],
+  "enquiries": [
+    {
+      "id": "enq-1",
+      "name": "Ram Bahadur",
+      "phone": "+977 9852012345",
+      "productName": "SKF Deep Groove Ball Bearing 6204-2RSH",
+      "message": "Hello, I need 15 pieces of this bearing urgently for my water pump. Do you have sufficient stock and can you arrange delivery to Dharan?",
+      "date": "2026-07-03T12:00:00.000Z",
+      "status": "pending"
+    }
+  ],
+  "quotations": [
+    {
+      "id": "quot-1",
+      "name": "Shyam Sundar",
+      "phone": "+977 9812345678",
+      "email": "shyam@gmail.com",
+      "products": [
+        {
+          "productId": "prod-1",
+          "productName": "SKF Deep Groove Ball Bearing 6204-2RSH",
+          "quantity": 50
+        },
+        {
+          "productId": "prod-3",
+          "productName": "Mahindra Tractor PTO Shaft Oil Seal",
+          "quantity": 10
+        }
+      ],
+      "message": "We are looking for a bulk quotation for our repair workshop in Itahari. Please provide the best discounted prices for these items.",
+      "date": "2026-07-03T14:30:00.000Z",
+      "status": "pending"
+    }
+  ],
+  "reviews": [
+    {
+      "id": "rev-1",
+      "productId": "prod-1",
+      "productName": "SKF Deep Groove Ball Bearing 6204-2RSH",
+      "customerName": "Dinesh Thapa",
+      "rating": 5,
+      "comment": "Genuine SKF bearing! Works perfectly in my Swaraj tractor front wheels. Very smooth operation and completely dust-proof due to rubber seals.",
+      "date": "2026-07-02T10:00:00.000Z",
+      "isVerified": true,
+      "approved": true,
+      "reply": "Thank you, Dinesh! We only deal in 100% genuine products directly imported from SKF. We appreciate your review.",
+      "replyDate": "2026-07-02T14:00:00.000Z"
+    },
+    {
+      "id": "rev-2",
+      "productId": "prod-4",
+      "productName": "Castrol RX Super Tractor Engine Oil 15W-40",
+      "customerName": "Hari Prasad",
+      "rating": 4,
+      "comment": "Excellent engine oil. Tractor is running very smooth under heavy payload. Highly recommended for Mahindra tractors.",
+      "date": "2026-07-03T08:30:00.000Z",
+      "isVerified": true,
+      "approved": true
+    }
+  ],
+  "banners": [
+    {
+      "id": "ban-1",
+      "imageUrl": "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?q=80&w=1200&auto=format&fit=crop",
+      "title": "PREMIUM BEARINGS & PARTS",
+      "subtitle": "100% Genuine Bearings, Seals & Tractor Parts for High Performance",
+      "linkToCategory": "Bearings"
+    },
+    {
+      "id": "ban-2",
+      "imageUrl": "https://images.unsplash.com/photo-1594398901394-4e34939a4fd0?q=80&w=1200&auto=format&fit=crop",
+      "title": "TRACTOR & HEAVY MACHINERY PARTS",
+      "subtitle": "Reliable spares for Mahindra, Swaraj, Massey Ferguson and John Deere",
+      "linkToCategory": "Automotive Parts"
+    },
+    {
+      "id": "ban-3",
+      "imageUrl": "https://images.unsplash.com/photo-1486006920555-c77dce18193b?q=80&w=1200&auto=format&fit=crop",
+      "title": "HIGH GRADE LUBRICANTS & GREASE",
+      "subtitle": "Castrol & Mobil high-viscosity oils to keep your gears running flawlessly",
+      "linkToCategory": "Lubricants"
+    }
+  ],
+  "settings": {
+    "businessName": "Sunkoshi Bearing Centre",
+    "ownerName": "Sita Ram Regmi",
+    "adminName": "Alex Regmi",
+    "adminEmail": "tikaregmi551@gmail.com",
+    "phone": "+977 9842176142",
+    "whatsappPhone": "+9779842176142",
+    "address": "Labipur, Itahari, Nepal",
+    "logoUrl": "https://images.unsplash.com/photo-1621905252507-b354bc25edac?q=80&w=100&auto=format&fit=crop",
+    "mapEmbedUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14259.043644145399!2d87.26620984852928!3d26.6616611484196!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39efc57703350285%3A0xe54d6fb247849e7b!2sItahari%2C%20Nepal!5e0!3m2!1sen!2snp!4v1720000000000!5m2!1sen!2snp",
+    "themeMode": "light",
+    "themePrimaryColor": "#16a34a"
+  },
+  "logs": [
+    {
+      "id": "log-1783159304518",
+      "action": "Super Admin Login",
+      "timestamp": "2026-07-04T10:01:44.518Z",
+      "details": "Super Admin successfully authenticated using two-factor passcode."
+    },
+    {
+      "id": "log-1783159081519",
+      "action": "Super Admin Login",
+      "timestamp": "2026-07-04T09:58:01.519Z",
+      "details": "Super Admin successfully authenticated using two-factor passcode."
+    },
+    {
+      "id": "log-1",
+      "action": "Database Initialized",
+      "timestamp": "2026-07-04T02:30:00.000Z",
+      "details": "Sunkoshi Bearing Centre database created successfully with initial seed data."
+    }
+  ]
+}

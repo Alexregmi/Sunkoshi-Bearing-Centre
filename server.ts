@@ -1,14 +1,8 @@
 import express from "express";
 import path from "path";
 import fs from "fs/promises";
-import { fileURLToPath } from "url";
-import { createServer as createViteServer } from "vite";
 import { GoogleGenAI } from "@google/genai";
 import { DatabaseSchema, Product, Review, Enquiry, QuotationRequest, AdminLog, Brand } from "./src/types.js";
-
-// Utility to emulate __dirname in ES Modules
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
 
 const PORT = 3000;
 const DB_FILE_PATH = path.join(process.cwd(), "server", "db.json");
@@ -617,7 +611,7 @@ Owner: Sita Ram Regmi. Admin: Alex Regmi. Phone: +977 9842176142. Super Admin Em
 Your main tasks are to:
 1. Help users find bearings and tractor parts from our current active inventory.
 2. Check stock availability, prices, and discounts accurately using the inventory catalog below.
-3. Recommend similar products or products of premium brands we carry (SKF, FAG, NTN, TIMKEN, NSK, KOYO, NBC, Tata, Castrol).
+3. Recommend similar products or products of premium brands we carry (FAG, Timken, TVS Girling, NRB, Petronas, MAK Lubricants, HP, Eicher).
 4. Answer common queries about bearings, seals, tractor models compatibility, and lubricants.
 5. Guide them on how to contact our shop (Call/WhatsApp/Email buttons are on the screen, and they can send enquiries through the contact form).
 
@@ -639,7 +633,7 @@ Guidelines:
       if (!process.env.GEMINI_API_KEY) {
         console.warn("WARNING: GEMINI_API_KEY environment variable is missing.");
         return res.json({
-          response: "Namaste! I'm the Sunkoshi Bearing Centre AI Assistant. [NOTE: Gemini API key is currently not configured in the system, so I am running in Offline Mode]. I can tell you that we have premium bearings (SKF 6204, TIMKEN Set 47), Mahindra tractor parts, oils and grease in our catalog. Please use the Call or WhatsApp buttons above to contact Sita Ram Regmi directly!"
+          response: "Namaste! I'm the Sunkoshi Bearing Centre AI Assistant. [NOTE: Gemini API key is currently not configured in the system, so I am running in Offline Mode]. I can tell you that we have premium bearings (FAG 6204, Timken Set 47), Swaraj/Eicher tractor parts, oils and grease in our catalog. Please use the Call or WhatsApp buttons above to contact Sita Ram Regmi directly!"
         });
       }
 
@@ -684,6 +678,7 @@ Guidelines:
   // --- VITE / STATIC SERVING MIDDLEWARE ---
 
   if (process.env.NODE_ENV !== "production") {
+    const { createServer: createViteServer } = await import("vite");
     const vite = await createViteServer({
       server: { middlewareMode: true },
       appType: "spa"

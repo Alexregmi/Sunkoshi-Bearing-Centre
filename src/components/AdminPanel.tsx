@@ -1,6 +1,7 @@
 import React from "react";
 import { ShieldCheck, LogOut, ArrowRight, Save, Plus, Edit, Trash2, Key, Info, Check, RefreshCw, FileText, Database, Activity, Star, Award, Tag, Globe, Palette, Bell, FileDown, Sliders, Shield, Download, Upload, HelpCircle, Laptop } from "lucide-react";
 import { Product, Review, Enquiry, QuotationRequest, AppSettings, AdminLog, Brand } from "../types";
+import { apiFetch } from "../lib/api";
 
 interface AdminPanelProps {
   products: Product[];
@@ -72,7 +73,7 @@ export default function AdminPanel({
     }
 
     try {
-      const res = await fetch("/api/admin/brands", {
+      const res = await apiFetch("/api/admin/brands", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -113,7 +114,7 @@ export default function AdminPanel({
     const updatedBrands = brands.filter((b) => b.id !== brandId);
 
     try {
-      const res = await fetch("/api/admin/brands", {
+      const res = await apiFetch("/api/admin/brands", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -140,7 +141,7 @@ export default function AdminPanel({
   // Product Form states
   const [pName, setPName] = React.useState("");
   const [pCategory, setPCategory] = React.useState("Bearings");
-  const [pBrand, setPBrand] = React.useState("SKF");
+  const [pBrand, setPBrand] = React.useState("FAG");
   const [pSku, setPSku] = React.useState("");
   const [pBarcode, setPBarcode] = React.useState("");
   const [pPrice, setPPrice] = React.useState(0);
@@ -198,7 +199,7 @@ export default function AdminPanel({
     try {
       const token = localStorage.getItem("sunkoshi_admin_token");
       if (!token) return;
-      const res = await fetch("/api/admin/reports", {
+      const res = await apiFetch("/api/admin/reports", {
         headers: { Authorization: `Bearer ${token}` }
       });
       const data = await res.json();
@@ -220,7 +221,7 @@ export default function AdminPanel({
     setAuthLoading(true);
 
     try {
-      const res = await fetch("/api/admin/login-step1", {
+      const res = await apiFetch("/api/admin/login-step1", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email })
@@ -249,7 +250,7 @@ export default function AdminPanel({
     setAuthLoading(true);
 
     try {
-      const res = await fetch("/api/admin/login-step2", {
+      const res = await apiFetch("/api/admin/login-step2", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email, code: passcode })
@@ -291,7 +292,7 @@ export default function AdminPanel({
     };
 
     try {
-      const res = await fetch("/api/admin/products", {
+      const res = await apiFetch("/api/admin/products", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -341,7 +342,7 @@ export default function AdminPanel({
     const token = localStorage.getItem("sunkoshi_admin_token");
 
     try {
-      const res = await fetch("/api/admin/products", {
+      const res = await apiFetch("/api/admin/products", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -385,7 +386,7 @@ export default function AdminPanel({
     const token = localStorage.getItem("sunkoshi_admin_token");
 
     try {
-      const res = await fetch("/api/admin/communications", {
+      const res = await apiFetch("/api/admin/communications", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -413,7 +414,7 @@ export default function AdminPanel({
   const handleApproveReview = async (id: string) => {
     const token = localStorage.getItem("sunkoshi_admin_token");
     try {
-      const res = await fetch("/api/admin/reviews", {
+      const res = await apiFetch("/api/admin/reviews", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -437,7 +438,7 @@ export default function AdminPanel({
     if (!confirm("Delete this customer review permanently?")) return;
     const token = localStorage.getItem("sunkoshi_admin_token");
     try {
-      const res = await fetch("/api/admin/reviews", {
+      const res = await apiFetch("/api/admin/reviews", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -463,7 +464,7 @@ export default function AdminPanel({
     const token = localStorage.getItem("sunkoshi_admin_token");
 
     try {
-      const res = await fetch("/api/admin/reviews", {
+      const res = await apiFetch("/api/admin/reviews", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -517,7 +518,7 @@ export default function AdminPanel({
     }
 
     try {
-      const res = await fetch("/api/admin/restore", {
+      const res = await apiFetch("/api/admin/restore", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -659,7 +660,7 @@ export default function AdminPanel({
           logs: activityLogs
         };
 
-        const res = await fetch("/api/admin/restore", {
+        const res = await apiFetch("/api/admin/restore", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
@@ -797,7 +798,7 @@ export default function AdminPanel({
     };
 
     try {
-      const res = await fetch("/api/admin/settings", {
+      const res = await apiFetch("/api/admin/settings", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -1090,7 +1091,7 @@ export default function AdminPanel({
                     required
                     value={pName}
                     onChange={(e) => setPName(e.target.value)}
-                    placeholder="e.g., SKF 6204 Ball Bearing"
+                    placeholder="e.g., FAG 6204 Ball Bearing"
                     className="p-2 bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-850 rounded-lg text-xs text-slate-800 dark:text-slate-100"
                   />
                 </div>
@@ -1134,7 +1135,7 @@ export default function AdminPanel({
                       required
                       value={pSku}
                       onChange={(e) => setPSku(e.target.value)}
-                      placeholder="SKF-6204-C3"
+                      placeholder="FAG-6204-C3"
                       className="p-2 bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-850 rounded-lg text-xs text-slate-800 dark:text-slate-100"
                     />
                   </div>
@@ -2093,7 +2094,7 @@ export default function AdminPanel({
                     <textarea
                       value={csvImportText}
                       onChange={(e) => setCsvImportText(e.target.value)}
-                      placeholder="e.g.&#10;SKF-6204,150&#10;TIMKEN-SET47,45&#10;CASTROL-15W40,24"
+                      placeholder="e.g.&#10;FAG-6204,150&#10;TIMKEN-SET47,45&#10;MAK-15W40,24"
                       className="p-2 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl h-20 font-mono text-[9px] leading-tight"
                     />
                     <div className="flex gap-2 justify-between items-center mt-1">
@@ -2121,9 +2122,9 @@ export default function AdminPanel({
                   <div className="flex flex-col gap-1">
                     <span className="text-[9px] font-bold text-slate-400 uppercase">Live Stock Action History</span>
                     <div className="bg-white dark:bg-slate-950 border border-slate-150 dark:border-slate-850 rounded-xl p-2 max-h-[85px] overflow-y-auto text-[8.5px] leading-normal font-mono text-slate-500">
-                      <div><span className="text-emerald-500">✦ IN</span> SKF Bearing 6204-2RSH (+50 units) • Today</div>
-                      <div><span className="text-amber-500">✦ ALERT</span> Lubricants - Castrol oil level below warning limits • Yesterday</div>
-                      <div><span className="text-red-500">✦ OUT</span> Mahindra Clutch plate stock empty • 2 days ago</div>
+                      <div><span className="text-emerald-500">✦ IN</span> FAG Bearing 6204-2RSH (+50 units) • Today</div>
+                      <div><span className="text-amber-500">✦ ALERT</span> Lubricants - MAK oil level below warning limits • Yesterday</div>
+                      <div><span className="text-red-500">✦ OUT</span> Eicher Clutch plate stock empty • 2 days ago</div>
                     </div>
                   </div>
                 </div>
@@ -2245,7 +2246,7 @@ export default function AdminPanel({
                     <textarea
                       value={shopAnnouncementsText}
                       onChange={(e) => setShopAnnouncementsText(e.target.value)}
-                      placeholder="e.g. Monsoon Offer: 10% Flat Discount on castrol grease & SKF heavy machine bearing series! Valid until July 15."
+                      placeholder="e.g. Monsoon Offer: 10% Flat Discount on MAK grease & FAG heavy machine bearing series! Valid until July 15."
                       className="p-2 bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-xl text-xs h-16 leading-relaxed"
                     />
                     <p className="text-[8px] text-slate-400 mt-0.5">Announcements display instantly on the client's home-screen dashboard marquee.</p>

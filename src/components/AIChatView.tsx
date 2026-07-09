@@ -1,5 +1,7 @@
 import React from "react";
 import { Send, HelpCircle, PhoneCall, Sparkles, MessageSquare, ArrowRight, User } from "lucide-react";
+import { playSynthSound } from "../lib/sounds";
+import { apiFetch } from "../lib/api";
 
 interface AIChatViewProps {
   lang: "en" | "np";
@@ -28,14 +30,14 @@ export default function AIChatView({ lang, onNavigateToTab }: AIChatViewProps) {
   // Suggested prompt questions
   const suggestedPrompts = lang === "en"
     ? [
-        "Do you have SKF 6204 bearing?",
-        "Recommend grease for Mahindra tractor",
+        "Do you have FAG 6204 bearing?",
+        "Recommend grease for Swaraj tractor",
         "Which bearing is best for Swaraj front wheel?",
         "Where is the shop located?"
       ]
     : [
-        "के तपाईंसँग SKF 6204 बियरिङ उपलब्ध छ?",
-        "महिन्द्रा ट्रयाक्टरको लागि ग्रीस सिफारिस गर्नुहोस्",
+        "के तपाईंसँग FAG 6204 बियरिङ उपलब्ध छ?",
+        "स्वराज ट्रयाक्टरको लागि ग्रीस सिफारिस गर्नुहोस्",
         "स्वराज अगाडिको पाङ्ग्राको लागि कुन बियरिङ राम्रो हुन्छ?",
         "पसलको ठेगाना कहाँ छ?"
       ];
@@ -49,6 +51,8 @@ export default function AIChatView({ lang, onNavigateToTab }: AIChatViewProps) {
     const messageText = textToSend.trim();
     if (!messageText) return;
 
+    playSynthSound("search");
+
     // Add user message
     const userMessage: ChatMessage = { role: "user", text: messageText };
     setMessages((prev) => [...prev, userMessage]);
@@ -56,7 +60,7 @@ export default function AIChatView({ lang, onNavigateToTab }: AIChatViewProps) {
     setLoading(true);
 
     try {
-      const response = await fetch("/api/assistant", {
+      const response = await apiFetch("/api/assistant", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
@@ -67,12 +71,14 @@ export default function AIChatView({ lang, onNavigateToTab }: AIChatViewProps) {
 
       const data = await response.json();
       if (response.ok && data.response) {
+        playSynthSound("notification");
         setMessages((prev) => [...prev, { role: "assistant", text: data.response }]);
       } else {
         throw new Error(data.error || "Failed to fetch response");
       }
     } catch (err: any) {
       console.error(err);
+      playSynthSound("error");
       setMessages((prev) => [
         ...prev,
         {
@@ -111,7 +117,10 @@ export default function AIChatView({ lang, onNavigateToTab }: AIChatViewProps) {
           </div>
         </div>
         <button
-          onClick={() => onNavigateToTab("catalog")}
+          onClick={() => {
+            playSynthSound("tap");
+            onNavigateToTab("catalog");
+          }}
           className="text-[9px] font-bold bg-white/5 px-2.5 py-1 rounded-md border border-white/10 hover:bg-white/10 transition-all flex items-center gap-1 text-slate-300"
         >
           <span>{lang === "en" ? "Browse Store" : "स्टोर हेर्नुहोस्"}</span>

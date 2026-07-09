@@ -1,6 +1,7 @@
 import React from "react";
 import { Search, ChevronLeft, ChevronRight, Phone, MessageSquare, MapPin, Mail, ArrowRight, ShieldCheck, Star } from "lucide-react";
 import { Product, Banner, AppSettings, Review, Brand } from "../types";
+import { playSynthSound } from "../lib/sounds";
 
 interface HomeViewProps {
   products: Product[];
@@ -38,16 +39,19 @@ export default function HomeView({
   }, [banners.length]);
 
   const handleNextSlide = () => {
+    playSynthSound("tap");
     setCurrentSlide((prev) => (prev + 1) % banners.length);
   };
 
   const handlePrevSlide = () => {
+    playSynthSound("tap");
     setCurrentSlide((prev) => (prev - 1 + banners.length) % banners.length);
   };
 
   const handleSearchSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (searchQuery.trim()) {
+      playSynthSound("search");
       onNavigateToTab("catalog", searchQuery.trim());
     }
   };
@@ -99,7 +103,7 @@ export default function HomeView({
         </div>
         <div className="relative z-10">
           <p className="text-xs uppercase tracking-wider text-black/60 font-bold font-display">
-            {lang === "en" ? "Official Partner: SKF, FAG, NTN" : "आधिकारिक पार्टनर: SKF, FAG, NTN"}
+            {lang === "en" ? "Official Partner: FAG, Timken, TVS Girling" : "आधिकारिक पार्टनर: FAG, Timken, TVS Girling"}
           </p>
           <h2 className="text-xl md:text-2xl font-black font-display tracking-tight leading-none mt-1.5">
             {settings.businessName.toUpperCase()}
@@ -158,7 +162,10 @@ export default function HomeView({
             {banners.map((_, i) => (
               <div
                 key={i}
-                onClick={() => setCurrentSlide(i)}
+                onClick={() => {
+                  playSynthSound("tap");
+                  setCurrentSlide(i);
+                }}
                 className={`w-1.5 h-1.5 rounded-full cursor-pointer transition-all ${
                   currentSlide === i ? "bg-amber-500 scale-125" : "bg-white/50"
                 }`}
@@ -192,7 +199,10 @@ export default function HomeView({
             {lang === "en" ? "Product Categories" : "उत्पादन कोटिहरू"}
           </h4>
           <button
-            onClick={() => onNavigateToTab("catalog")}
+            onClick={() => {
+              playSynthSound("tap");
+              onNavigateToTab("catalog");
+            }}
             className="text-[10px] font-bold text-amber-500 hover:underline"
           >
             {lang === "en" ? "View All" : "सबै हेर्नुहोस्"}
@@ -206,7 +216,10 @@ export default function HomeView({
             return (
               <button
                 key={cat}
-                onClick={() => onNavigateToTab("catalog", "", cat)}
+                onClick={() => {
+                  playSynthSound("tap");
+                  onNavigateToTab("catalog", "", cat);
+                }}
                 className="flex-shrink-0 bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 rounded-xl px-4 py-2.5 flex flex-col items-center gap-1 shadow-xs hover:border-amber-500 hover:scale-105 transition-all"
               >
                 <span className="text-xl">
@@ -232,7 +245,7 @@ export default function HomeView({
               ✨ {lang === "en" ? "Featured Products" : "विशेष उत्पादनहरू"}
             </h4>
           </div>
-          <div className="grid grid-cols-2 gap-3">
+          <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
             {featuredProducts.map((p) => {
               const stock = getStockStatus(p.availableQty);
               const hasDiscount = p.discount > 0;
@@ -241,7 +254,10 @@ export default function HomeView({
               return (
                 <div
                   key={p.id}
-                  onClick={() => onSelectProduct(p)}
+                  onClick={() => {
+                    playSynthSound("tap");
+                    onSelectProduct(p);
+                  }}
                   className="bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800/80 rounded-xl overflow-hidden p-2 flex flex-col gap-1.5 shadow-sm hover:border-amber-500 transition-all cursor-pointer relative"
                 >
                   {hasDiscount && (
@@ -301,7 +317,10 @@ export default function HomeView({
           {brands.map((b) => (
             <button
               key={b.id}
-              onClick={() => onNavigateToTab("catalog", b.name)}
+              onClick={() => {
+                playSynthSound("tap");
+                onNavigateToTab("catalog", b.name);
+              }}
               className="px-3.5 py-1.5 bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 hover:border-amber-500 rounded-xl text-[10px] font-bold text-slate-800 dark:text-slate-200 flex-shrink-0 shadow-xs flex items-center gap-1.5 transition-all hover:scale-105"
             >
               {b.logoUrl ? (
@@ -333,7 +352,7 @@ export default function HomeView({
               🔥 {lang === "en" ? "Best Selling Products" : "धेरै बिक्री हुने सामानहरू"}
             </h4>
           </div>
-          <div className="grid grid-cols-2 gap-3">
+          <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
             {bestSellers.map((p) => {
               const stock = getStockStatus(p.availableQty);
               const hasDiscount = p.discount > 0;
@@ -342,7 +361,10 @@ export default function HomeView({
               return (
                 <div
                   key={p.id}
-                  onClick={() => onSelectProduct(p)}
+                  onClick={() => {
+                    playSynthSound("tap");
+                    onSelectProduct(p);
+                  }}
                   className="bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800/80 rounded-xl overflow-hidden p-2 flex flex-col gap-1.5 shadow-sm hover:border-amber-500 transition-all cursor-pointer relative"
                 >
                   {hasDiscount && (
@@ -487,6 +509,7 @@ export default function HomeView({
         <div className="grid grid-cols-2 gap-2 mt-2">
           <a
             href={`tel:${settings.phone}`}
+            onClick={() => playSynthSound("tap")}
             className="flex items-center justify-center gap-2 bg-amber-500 hover:bg-amber-600 text-black font-bold py-2 px-3 rounded-lg text-[10px] tracking-wide uppercase transition-all shadow-xs"
           >
             <Phone className="h-3 w-3" />
@@ -495,6 +518,7 @@ export default function HomeView({
 
           <a
             href={`https://wa.me/${settings.whatsappPhone.replace(/[^0-9]/g, "")}`}
+            onClick={() => playSynthSound("tap")}
             target="_blank"
             rel="noopener noreferrer"
             className="flex items-center justify-center gap-1.5 bg-white/5 hover:bg-white/10 border border-white/10 text-slate-200 font-bold py-2 px-3 rounded-lg text-[10px] tracking-wide uppercase transition-all shadow-xs"

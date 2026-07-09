@@ -1,6 +1,8 @@
 import React from "react";
 import { Heart, Trash2, FileText, Send, Clock, Sparkles, ShoppingBag, ArrowRight } from "lucide-react";
 import { Product, QuotationRequest } from "../types";
+import { playSynthSound } from "../lib/sounds";
+import { apiFetch } from "../lib/api";
 
 interface WishlistQuoteViewProps {
   products: Product[];
@@ -45,13 +47,20 @@ export default function WishlistQuoteView({
 
   const handleQtyChange = (productId: string, val: number) => {
     if (val < 1) return;
+    playSynthSound("cart");
     setQuantities((prev) => ({ ...prev, [productId]: val }));
   };
 
   const handleQuoteSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (wishlistedItems.length === 0) return;
-    if (!name || !phone) return;
+    if (wishlistedItems.length === 0) {
+      playSynthSound("error");
+      return;
+    }
+    if (!name || !phone) {
+      playSynthSound("error");
+      return;
+    }
     setLoading(true);
 
     const items = wishlistedItems.map((item) => ({
@@ -72,13 +81,14 @@ export default function WishlistQuoteView({
     };
 
     try {
-      const response = await fetch("/api/quotations", {
+      const response = await apiFetch("/api/quotations", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(quotePayload)
       });
       const data = await response.json();
       if (response.ok && data.quotation) {
+        playSynthSound("success");
         setSuccessQuote(data.quotation);
         // Clear wishlist after quotation request
         wishlistedItems.forEach((item) => onRemoveFromWishlist(item));
@@ -91,6 +101,7 @@ export default function WishlistQuoteView({
       }
     } catch (err) {
       console.error(err);
+      playSynthSound("error");
       alert("Failed to submit quotation. Please try again.");
     } finally {
       setLoading(false);
@@ -224,7 +235,10 @@ export default function WishlistQuoteView({
                 >
                   {/* Photo thumbnail */}
                   <div
-                    onClick={() => onSelectProduct(item)}
+                    onClick={() => {
+                      playSynthSound("tap");
+                      onSelectProduct(item);
+                    }}
                     className="w-12 h-12 rounded-lg overflow-hidden bg-slate-50 cursor-pointer flex-shrink-0"
                   >
                     <img src={item.images[0]} alt={item.name} className="w-full h-full object-cover" />
@@ -236,7 +250,10 @@ export default function WishlistQuoteView({
                       {item.brand}
                     </span>
                     <h5
-                      onClick={() => onSelectProduct(item)}
+                      onClick={() => {
+                        playSynthSound("tap");
+                        onSelectProduct(item);
+                      }}
                       className="text-[10px] font-bold text-slate-800 dark:text-slate-200 truncate cursor-pointer hover:underline"
                     >
                       {item.name}
@@ -275,7 +292,10 @@ export default function WishlistQuoteView({
 
                     {/* Delete button */}
                     <button
-                      onClick={() => onRemoveFromWishlist(item)}
+                      onClick={() => {
+                        playSynthSound("tap");
+                        onRemoveFromWishlist(item);
+                      }}
                       className="p-1 text-slate-400 hover:text-red-500 transition-colors"
                       title={lang === "en" ? "Remove from sheet" : "सूचीबाट हटाउनुहोस्"}
                     >

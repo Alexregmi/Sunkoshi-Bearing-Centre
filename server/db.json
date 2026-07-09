@@ -2,12 +2,12 @@
   "products": [
     {
       "id": "prod-1",
-      "name": "SKF Deep Groove Ball Bearing 6204-2RSH",
-      "sku": "SKF-6204-2RSH",
+      "name": "FAG Deep Groove Ball Bearing 6204-2RSH",
+      "sku": "FAG-6204-2RSH",
       "barcode": "7316571900125",
-      "brand": "SKF",
+      "brand": "FAG",
       "category": "Bearings",
-      "description": "High-quality single row deep groove ball bearing by SKF. Features rubber seals on both sides to prevent dust ingress. Extremely versatile, robust, and low maintenance. Ideal for high speed and medium loads.",
+      "description": "High-quality single row deep groove ball bearing by FAG. Features rubber seals on both sides to prevent dust ingress. Extremely versatile, robust, and low maintenance. Ideal for high speed and medium loads.",
       "price": 450,
       "discount": 5,
       "warranty": "6 Months",
@@ -51,23 +51,23 @@
       "bestSelling": true,
       "newArrival": false,
       "tractorModels": [
-        "Mahindra DI-275",
         "Swaraj 744",
-        "Massey Ferguson 1035"
+        "Massey Ferguson 1035",
+        "John Deere 5050D"
       ],
       "vehicleModels": [
-        "Tata Ace",
+        "Eicher Pro 1049",
         "Maruti 800"
       ]
     },
     {
       "id": "prod-2",
-      "name": "TIMKEN Tapered Roller Bearing Set 47",
+      "name": "Timken Tapered Roller Bearing Set 47",
       "sku": "TIM-SET-47",
       "barcode": "053893110291",
-      "brand": "TIMKEN",
+      "brand": "Timken",
       "category": "Automotive Bearings",
-      "description": "TIMKEN is the gold standard for tapered roller bearings. Perfect for front wheel wheel hub applications. Engineered to manage both radial and thrust loads efficiently on heavy duty utility vehicles.",
+      "description": "Timken is the gold standard for tapered roller bearings. Perfect for front wheel wheel hub applications. Engineered to manage both radial and thrust loads efficiently on heavy duty utility vehicles.",
       "price": 1850,
       "discount": 10,
       "warranty": "1 Year",
@@ -103,23 +103,22 @@
       "bestSelling": false,
       "newArrival": true,
       "tractorModels": [
-        "Mahindra Arjun 555",
         "Swaraj 855",
         "John Deere 5050D"
       ],
       "vehicleModels": [
-        "Tata LPT 407",
-        "Mahindra Bolero Pickup"
+        "Eicher Pro 1049",
+        "Force Traveller"
       ]
     },
     {
       "id": "prod-3",
-      "name": "Mahindra Tractor PTO Shaft Oil Seal",
-      "sku": "PTO-SEAL-MH",
+      "name": "TVS Girling Tractor PTO Shaft Oil Seal",
+      "sku": "TVS-PTO-SEAL",
       "barcode": "890412356019",
-      "brand": "Tata",
+      "brand": "TVS Girling",
       "category": "Oil Seals",
-      "description": "Premium Nitrile Rubber (NBR) oil seal with double lips and garter spring. Designed specifically for the PTO (Power Take-Off) output shaft of Mahindra DI series tractors to prevent gear oil leakage.",
+      "description": "Premium Nitrile Rubber (NBR) oil seal with double lips and garter spring. Designed specifically for the PTO (Power Take-Off) output shaft of Eicher and Swaraj series tractors to prevent gear oil leakage.",
       "price": 280,
       "discount": 0,
       "warranty": "No warranty",
@@ -154,20 +153,19 @@
       "bestSelling": true,
       "newArrival": false,
       "tractorModels": [
-        "Mahindra DI-275",
-        "Mahindra Arjun 555",
-        "Mahindra XP Plus"
+        "Swaraj 744",
+        "Eicher 335"
       ],
       "vehicleModels": []
     },
     {
       "id": "prod-4",
-      "name": "Castrol RX Super Tractor Engine Oil 15W-40",
-      "sku": "CAS-RX-15W40-5L",
+      "name": "MAK Lubricants RX Super Tractor Engine Oil 15W-40",
+      "sku": "MAK-RX-15W40-5L",
       "barcode": "5010321008712",
-      "brand": "Castrol",
+      "brand": "MAK Lubricants",
       "category": "Lubricants",
-      "description": "5-Litre premium engine oil formulated specifically for high-torque tractor and heavy commercial vehicle engines. Provides active soot protection and reduces engine wear under extreme loads.",
+      "description": "5-Litre premium engine oil formulated specifically for high-torque tractor and heavy commercial vehicle engines by MAK Lubricants. Provides active soot protection and reduces engine wear under extreme loads.",
       "price": 3450,
       "discount": 12,
       "warranty": "Expiry 3 Years",
@@ -198,26 +196,23 @@
       "bestSelling": true,
       "newArrival": true,
       "tractorModels": [
-        "Mahindra DI-275",
         "Swaraj 744",
         "Massey Ferguson 1035",
-        "Sonalika Rx-750",
         "Escorts 335"
       ],
       "vehicleModels": [
-        "Tata 407",
-        "Mahindra Bolero",
-        "Force Traveller"
+        "Force Traveller",
+        "Eicher Pro 1049"
       ]
     },
     {
       "id": "prod-5",
-      "name": "SKF LGMT 3 Premium Industrial Grease",
-      "sku": "SKF-LGMT3-1KG",
+      "name": "Petronas Premium Industrial Grease",
+      "sku": "PET-GREASE-1KG",
       "barcode": "7316572520111",
-      "brand": "SKF",
+      "brand": "Petronas",
       "category": "Grease",
-      "description": "SKF LGMT 3 is a mineral oil based, lithium soap thickened grease. This premium-quality, general purpose grease is suitable for a wide range of industrial and automotive applications requiring stiff grease.",
+      "description": "Petronas Premium Industrial Grease is a mineral oil based, lithium soap thickened grease. This premium-quality, general purpose grease is suitable for a wide range of industrial and automotive applications requiring stiff grease.",
       "price": 950,
       "discount": 5,
       "warranty": "N/A",
@@ -252,15 +247,13 @@
       "bestSelling": false,
       "newArrival": false,
       "tractorModels": [
-        "Mahindra DI-275",
         "Swaraj 744",
         "Massey Ferguson 1035",
         "Escorts 335"
       ],
       "vehicleModels": [
-        "Tata Ace",
-        "Mahindra Bolero",
-        "Eicher Pro 1049"
+        "Eicher Pro 1049",
+        "Force Traveller"
       ]
     }
   ],
@@ -278,23 +271,21 @@
     "Hardware Items"
   ],
   "brands": [
-    "SKF",
-    "FAG",
-    "NTN",
-    "NSK",
-    "TIMKEN",
-    "KOYO",
-    "NBC",
-    "Tata",
-    "Castrol",
-    "Mobil"
+    { "id": "brand-1", "name": "TVS Girling", "logoUrl": "https://images.unsplash.com/photo-1619642751034-765dfdf7c58e?q=80&w=120", "featured": true },
+    { "id": "brand-2", "name": "HP", "logoUrl": "https://images.unsplash.com/photo-1593642632823-8f785ba67e45?q=80&w=120", "featured": true },
+    { "id": "brand-3", "name": "Eicher", "logoUrl": "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?q=80&w=120", "featured": true },
+    { "id": "brand-4", "name": "FAG", "logoUrl": "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?q=80&w=120", "featured": true },
+    { "id": "brand-5", "name": "Timken", "logoUrl": "https://images.unsplash.com/photo-1537462715879-360eeb61a0bc?q=80&w=120", "featured": true },
+    { "id": "brand-6", "name": "NRB", "logoUrl": "https://images.unsplash.com/photo-1616788494707-ec28f08d05a1?q=80&w=120", "featured": true },
+    { "id": "brand-7", "name": "Petronas", "logoUrl": "https://images.unsplash.com/photo-1611244419377-b0a78db97a3d?q=80&w=120", "featured": true },
+    { "id": "brand-8", "name": "MAK Lubricants", "logoUrl": "https://images.unsplash.com/photo-1620641788421-7a1c342ea42e?q=80&w=120", "featured": true }
   ],
   "enquiries": [
     {
       "id": "enq-1",
       "name": "Ram Bahadur",
       "phone": "+977 9852012345",
-      "productName": "SKF Deep Groove Ball Bearing 6204-2RSH",
+      "productName": "FAG Deep Groove Ball Bearing 6204-2RSH",
       "message": "Hello, I need 15 pieces of this bearing urgently for my water pump. Do you have sufficient stock and can you arrange delivery to Dharan?",
       "date": "2026-07-03T12:00:00.000Z",
       "status": "pending"
@@ -309,12 +300,12 @@
       "products": [
         {
           "productId": "prod-1",
-          "productName": "SKF Deep Groove Ball Bearing 6204-2RSH",
+          "productName": "FAG Deep Groove Ball Bearing 6204-2RSH",
           "quantity": 50
         },
         {
           "productId": "prod-3",
-          "productName": "Mahindra Tractor PTO Shaft Oil Seal",
+          "productName": "TVS Girling Tractor PTO Shaft Oil Seal",
           "quantity": 10
         }
       ],
@@ -327,23 +318,23 @@
     {
       "id": "rev-1",
       "productId": "prod-1",
-      "productName": "SKF Deep Groove Ball Bearing 6204-2RSH",
+      "productName": "FAG Deep Groove Ball Bearing 6204-2RSH",
       "customerName": "Dinesh Thapa",
       "rating": 5,
-      "comment": "Genuine SKF bearing! Works perfectly in my Swaraj tractor front wheels. Very smooth operation and completely dust-proof due to rubber seals.",
+      "comment": "Genuine FAG bearing! Works perfectly in my Swaraj tractor front wheels. Very smooth operation and completely dust-proof due to rubber seals.",
       "date": "2026-07-02T10:00:00.000Z",
       "isVerified": true,
       "approved": true,
-      "reply": "Thank you, Dinesh! We only deal in 100% genuine products directly imported from SKF. We appreciate your review.",
+      "reply": "Thank you, Dinesh! We only deal in 100% genuine products directly imported from FAG. We appreciate your review.",
       "replyDate": "2026-07-02T14:00:00.000Z"
     },
     {
       "id": "rev-2",
       "productId": "prod-4",
-      "productName": "Castrol RX Super Tractor Engine Oil 15W-40",
+      "productName": "MAK Lubricants RX Super Tractor Engine Oil 15W-40",
       "customerName": "Hari Prasad",
       "rating": 4,
-      "comment": "Excellent engine oil. Tractor is running very smooth under heavy payload. Highly recommended for Mahindra tractors.",
+      "comment": "Excellent engine oil. Tractor is running very smooth under heavy payload. Highly recommended for Swaraj and Eicher tractors.",
       "date": "2026-07-03T08:30:00.000Z",
       "isVerified": true,
       "approved": true
@@ -361,14 +352,14 @@
       "id": "ban-2",
       "imageUrl": "https://images.unsplash.com/photo-1594398901394-4e34939a4fd0?q=80&w=1200&auto=format&fit=crop",
       "title": "TRACTOR & HEAVY MACHINERY PARTS",
-      "subtitle": "Reliable spares for Mahindra, Swaraj, Massey Ferguson and John Deere",
+      "subtitle": "Reliable spares for Eicher, Swaraj, Massey Ferguson and John Deere",
       "linkToCategory": "Automotive Parts"
     },
     {
       "id": "ban-3",
       "imageUrl": "https://images.unsplash.com/photo-1486006920555-c77dce18193b?q=80&w=1200&auto=format&fit=crop",
       "title": "HIGH GRADE LUBRICANTS & GREASE",
-      "subtitle": "Castrol & Mobil high-viscosity oils to keep your gears running flawlessly",
+      "subtitle": "Petronas & MAK Lubricants high-viscosity oils to keep your gears running flawlessly",
       "linkToCategory": "Lubricants"
     }
   ],

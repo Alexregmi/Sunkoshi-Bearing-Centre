@@ -8,6 +8,7 @@ import WishlistQuoteView from "./components/WishlistQuoteView";
 import AdminPanel from "./components/AdminPanel";
 import { Product, Review, Enquiry, QuotationRequest, AppSettings, Banner, Brand } from "./types";
 import { Scale, Heart, ShieldAlert, Sparkles, Check, X } from "lucide-react";
+import { apiFetch } from "./lib/api";
 
 export default function App() {
   // Format price helper
@@ -49,10 +50,22 @@ export default function App() {
   });
 
   // Client Interactivity States
-  const [wishlist, setWishlist] = React.useState<string[]>([]);
+  const [wishlist, setWishlist] = React.useState<string[]>(() => {
+    try {
+      const saved = localStorage.getItem("sunkoshi_wishlist");
+      return saved ? JSON.parse(saved) : [];
+    } catch {
+      return [];
+    }
+  });
   const [compareList, setCompareList] = React.useState<string[]>([]);
   const [selectedProduct, setSelectedProduct] = React.useState<Product | null>(null);
   const [isAdminLoggedIn, setIsAdminLoggedIn] = React.useState(false);
+
+  // Sync wishlist to local storage
+  React.useEffect(() => {
+    localStorage.setItem("sunkoshi_wishlist", JSON.stringify(wishlist));
+  }, [wishlist]);
 
   // Compare Drawer toggle
   const [showCompareDrawer, setShowCompareDrawer] = React.useState(false);
@@ -70,7 +83,7 @@ export default function App() {
   // Initial Fetch of Data catalog
   const fetchData = async () => {
     try {
-      const res = await fetch("/api/catalog");
+      const res = await apiFetch("/api/catalog");
       const data = await res.json();
       if (res.ok) {
         setProducts(data.products || []);
@@ -153,7 +166,7 @@ export default function App() {
   // Safe submission handlers (called inside components)
   const handleAddReview = async (reviewData: any) => {
     try {
-      const res = await fetch("/api/reviews", {
+      const res = await apiFetch("/api/reviews", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(reviewData)
@@ -170,7 +183,7 @@ export default function App() {
 
   const handleAddEnquiry = async (enquiryData: any) => {
     try {
-      const res = await fetch("/api/enquiries", {
+      const res = await apiFetch("/api/enquiries", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(enquiryData)
@@ -187,7 +200,7 @@ export default function App() {
 
   const handleAddQuotation = async (quoteData: any) => {
     try {
-      const res = await fetch("/api/quotations", {
+      const res = await apiFetch("/api/quotations", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(quoteData)

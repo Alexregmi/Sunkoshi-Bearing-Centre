@@ -1,6 +1,7 @@
 import React from "react";
 import { X, Heart, ShieldCheck, PhoneCall, Star, Clock, AlertTriangle, FileText, Send, Image, MessageSquare, Scale, QrCode, Download, Copy, Check } from "lucide-react";
 import { Product, Review, Enquiry } from "../types";
+import { playSynthSound } from "../lib/sounds";
 
 interface ProductDetailModalProps {
   product: Product | null;
@@ -35,12 +36,14 @@ export default function ProductDetailModal({
   const qrCodeUrl = `https://api.qrserver.com/v1/create-qr-code/?size=250x250&data=${encodeURIComponent(productUrl)}`;
 
   const handleCopyLink = () => {
+    playSynthSound("tap");
     navigator.clipboard.writeText(productUrl);
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
   };
 
   const handleDownloadQR = async () => {
+    playSynthSound("tap");
     try {
       const response = await fetch(qrCodeUrl);
       const blob = await response.blob();
@@ -140,7 +143,10 @@ export default function ProductDetailModal({
   // Submit Enquiry
   const handleEnquirySubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!enqName || !enqPhone || !enqMessage) return;
+    if (!enqName || !enqPhone || !enqMessage) {
+      playSynthSound("error");
+      return;
+    }
     setEnqLoading(true);
 
     const success = await onAddEnquiry({
@@ -152,18 +158,24 @@ export default function ProductDetailModal({
 
     setEnqLoading(false);
     if (success) {
+      playSynthSound("success");
       setEnqSuccess(true);
       setEnqName("");
       setEnqPhone("");
       setEnqMessage("");
       setTimeout(() => setEnqSuccess(false), 4000);
+    } else {
+      playSynthSound("error");
     }
   };
 
   // Submit Review
   const handleReviewSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!revName || !revComment) return;
+    if (!revName || !revComment) {
+      playSynthSound("error");
+      return;
+    }
     setRevLoading(true);
 
     const success = await onAddReview({
@@ -177,6 +189,7 @@ export default function ProductDetailModal({
 
     setRevLoading(false);
     if (success) {
+      playSynthSound("success");
       setRevSuccess(true);
       setRevName("");
       setRevComment("");
@@ -185,6 +198,8 @@ export default function ProductDetailModal({
         setRevSuccess(false);
         setShowReviewForm(false);
       }, 4000);
+    } else {
+      playSynthSound("error");
     }
   };
 
@@ -196,7 +211,10 @@ export default function ProductDetailModal({
         <div className="h-10 border-b border-slate-100 dark:border-slate-800 flex items-center justify-between px-6 flex-shrink-0">
           <div className="flex gap-1.5">
             <button
-              onClick={() => onToggleWishlist(product)}
+              onClick={() => {
+                playSynthSound("favorite");
+                onToggleWishlist(product);
+              }}
               className={`p-1 rounded-full transition-colors ${
                 isWishlisted ? "text-red-500" : "text-slate-400 hover:text-red-500"
               }`}
@@ -204,7 +222,10 @@ export default function ProductDetailModal({
               <Heart className={`h-4 w-4 ${isWishlisted ? "fill-current" : ""}`} />
             </button>
             <button
-              onClick={() => onToggleCompare(product)}
+              onClick={() => {
+                playSynthSound("tap");
+                onToggleCompare(product);
+              }}
               className={`p-1 rounded-full transition-colors ${
                 isComparing ? "text-blue-500" : "text-slate-400 hover:text-blue-500"
               }`}
@@ -216,7 +237,10 @@ export default function ProductDetailModal({
           <div className="w-10 h-1 bg-slate-200 dark:bg-slate-800 rounded-full"></div>
 
           <button
-            onClick={onClose}
+            onClick={() => {
+              playSynthSound("tap");
+              onClose();
+            }}
             className="p-1 bg-slate-100 dark:bg-slate-800 rounded-full hover:bg-slate-200 text-slate-500 dark:text-slate-400"
           >
             <X className="h-4 w-4" />

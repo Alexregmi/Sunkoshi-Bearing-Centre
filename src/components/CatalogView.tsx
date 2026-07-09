@@ -1,6 +1,7 @@
 import React from "react";
 import { Filter, Search, Grid, Eye, Check, Heart, Scale, FileSpreadsheet, RefreshCw, Star } from "lucide-react";
 import { Product, Brand } from "../types";
+import { playSynthSound } from "../lib/sounds";
 
 interface CatalogViewProps {
   products: Product[];
@@ -94,6 +95,7 @@ export default function CatalogView({
   }, [products, search, selectedCategory, selectedBrand, selectedStock, selectedTractorModel]);
 
   const clearAllFilters = () => {
+    playSynthSound("tap");
     setSearch("");
     setSelectedCategory("");
     setSelectedBrand("");
@@ -139,14 +141,20 @@ export default function CatalogView({
           <input
             type="text"
             value={search}
-            onChange={(e) => setSearch(e.target.value)}
+            onChange={(e) => {
+              setSearch(e.target.value);
+              playSynthSound("search");
+            }}
             placeholder={lang === "en" ? "Search genuine spare parts..." : "सामान खोज्नुहोस्..."}
             className="w-full py-2 pl-3 pr-9 bg-white dark:bg-slate-900 text-slate-800 dark:text-slate-100 rounded-lg border border-slate-200 dark:border-slate-800 text-xs shadow-xs focus:outline-none focus:border-amber-500"
           />
           <Search className="absolute right-3 top-1/2 -translate-y-1/2 h-3.5 w-3.5 text-slate-400" />
         </div>
         <button
-          onClick={() => setShowFilters(!showFilters)}
+          onClick={() => {
+            playSynthSound("tap");
+            setShowFilters(!showFilters);
+          }}
           className={`px-3 py-2 border rounded-lg flex items-center gap-1.5 text-xs font-bold transition-all ${
             showFilters || selectedCategory || selectedBrand || selectedTractorModel || selectedStock !== "all"
               ? "bg-amber-500/10 border-amber-500/30 text-amber-500"
@@ -173,7 +181,7 @@ export default function CatalogView({
             </button>
           </div>
 
-          <div className="grid grid-cols-2 gap-3">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
             {/* Category */}
             <div className="flex flex-col gap-1">
               <label className="text-[10px] text-slate-500 font-semibold uppercase">
@@ -181,7 +189,10 @@ export default function CatalogView({
               </label>
               <select
                 value={selectedCategory}
-                onChange={(e) => setSelectedCategory(e.target.value)}
+                onChange={(e) => {
+                  setSelectedCategory(e.target.value);
+                  playSynthSound("search");
+                }}
                 className="w-full p-1.5 bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 text-slate-800 dark:text-slate-200 rounded-lg text-[10px] focus:outline-none focus:border-amber-500"
               >
                 <option value="">{lang === "en" ? "All Categories" : "सबै कोटिहरू"}</option>
@@ -200,7 +211,10 @@ export default function CatalogView({
               </label>
               <select
                 value={selectedBrand}
-                onChange={(e) => setSelectedBrand(e.target.value)}
+                onChange={(e) => {
+                  setSelectedBrand(e.target.value);
+                  playSynthSound("search");
+                }}
                 className="w-full p-1.5 bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 text-slate-800 dark:text-slate-200 rounded-lg text-[10px] focus:outline-none focus:border-amber-500"
               >
                 <option value="">{lang === "en" ? "All Brands" : "सबै ब्रान्डहरू"}</option>
@@ -219,7 +233,10 @@ export default function CatalogView({
               </label>
               <select
                 value={selectedStock}
-                onChange={(e) => setSelectedStock(e.target.value)}
+                onChange={(e) => {
+                  setSelectedStock(e.target.value);
+                  playSynthSound("search");
+                }}
                 className="w-full p-1.5 bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 text-slate-800 dark:text-slate-200 rounded-lg text-[10px] focus:outline-none focus:border-amber-500"
               >
                 <option value="all">{lang === "en" ? "All Stock Status" : "सबै मौजदात"}</option>
@@ -236,7 +253,10 @@ export default function CatalogView({
               </label>
               <select
                 value={selectedTractorModel}
-                onChange={(e) => setSelectedTractorModel(e.target.value)}
+                onChange={(e) => {
+                  setSelectedTractorModel(e.target.value);
+                  playSynthSound("search");
+                }}
                 className="w-full p-1.5 bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 text-slate-800 dark:text-slate-200 rounded-lg text-[10px] focus:outline-none focus:border-amber-500"
               >
                 <option value="">{lang === "en" ? "All Tractor Models" : "सबै ट्रयाक्टर मोडेल"}</option>
@@ -260,7 +280,10 @@ export default function CatalogView({
         </span>
 
         <button
-          onClick={() => window.print()}
+          onClick={() => {
+            playSynthSound("tap");
+            window.print();
+          }}
           className="flex items-center gap-1 text-amber-500 font-bold hover:underline"
           title="Print Catalog to PDF"
         >
@@ -271,7 +294,7 @@ export default function CatalogView({
 
       {/* Products Grid */}
       {filteredProducts.length > 0 ? (
-        <div className="grid grid-cols-2 gap-3">
+        <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
           {filteredProducts.map((p) => {
             const isWishlisted = wishlist.includes(p.id);
             const isComparing = compareList.includes(p.id);
@@ -295,6 +318,7 @@ export default function CatalogView({
                   <button
                     onClick={(e) => {
                       e.stopPropagation();
+                      playSynthSound("favorite");
                       onToggleWishlist(p);
                     }}
                     className={`p-1.5 rounded-full border shadow-xs transition-colors ${
@@ -310,6 +334,7 @@ export default function CatalogView({
                   <button
                     onClick={(e) => {
                       e.stopPropagation();
+                      playSynthSound("tap");
                       onToggleCompare(p);
                     }}
                     className={`p-1.5 rounded-full border shadow-xs transition-colors ${
@@ -325,7 +350,10 @@ export default function CatalogView({
 
                 {/* Image Canvas */}
                 <div
-                  onClick={() => onSelectProduct(p)}
+                  onClick={() => {
+                    playSynthSound("tap");
+                    onSelectProduct(p);
+                  }}
                   className="aspect-square bg-slate-100 dark:bg-slate-800 rounded-lg overflow-hidden relative cursor-pointer"
                 >
                   <img
@@ -338,7 +366,13 @@ export default function CatalogView({
 
                 {/* Info Text Area */}
                 <div className="flex flex-col gap-1 flex-1 justify-between">
-                  <div onClick={() => onSelectProduct(p)} className="cursor-pointer">
+                  <div 
+                    onClick={() => {
+                      playSynthSound("tap");
+                      onSelectProduct(p);
+                    }} 
+                    className="cursor-pointer"
+                  >
                     <span className="text-[8px] uppercase tracking-wider text-slate-400 font-extrabold">
                       {p.brand}
                     </span>
@@ -369,7 +403,10 @@ export default function CatalogView({
                   {/* Actions Bar */}
                   <div className="mt-2.5 flex items-center justify-between border-t border-slate-100 dark:border-slate-800 pt-2 gap-1.5">
                     <button
-                      onClick={() => onSelectProduct(p)}
+                      onClick={() => {
+                        playSynthSound("tap");
+                        onSelectProduct(p);
+                      }}
                       className="flex-1 bg-slate-100 dark:bg-slate-800 hover:bg-amber-500/10 dark:hover:bg-slate-700 hover:text-amber-500 text-slate-700 dark:text-slate-300 font-bold py-1 px-2 rounded-lg text-[9px] transition-all flex items-center justify-center gap-1"
                     >
                       <Eye className="h-2.5 w-2.5" />
@@ -377,7 +414,10 @@ export default function CatalogView({
                     </button>
                     
                     <button
-                      onClick={() => onNavigateToTab("wishlist")}
+                      onClick={() => {
+                        playSynthSound("tap");
+                        onNavigateToTab("wishlist");
+                      }}
                       className="bg-amber-500 hover:bg-amber-600 text-black font-bold py-1 px-2 rounded-lg text-[9px] transition-all flex items-center justify-center"
                       title={lang === "en" ? "Request Quotation" : "कोटेसन लिनुहोस्"}
                     >
@@ -401,7 +441,10 @@ export default function CatalogView({
               : "तपाईंले खोज्नुभएको सामान भेटिएन। कृपया अर्कै नाम खोज्नुहोस् वा सिधै प्रोप्राइटर सीता राम रेग्मीलाई सम्पर्क गर्नुहोस्।"}
           </p>
           <button
-            onClick={clearAllFilters}
+            onClick={() => {
+              playSynthSound("tap");
+              clearAllFilters();
+            }}
             className="mt-1 px-4 py-2 bg-amber-500 hover:bg-amber-600 text-black rounded-lg text-xs font-bold transition-all"
           >
             {lang === "en" ? "Reset Filters" : "फिल्टर रिसेट"}
